@@ -14,6 +14,13 @@ class User extends Authenticatable implements MustVerifyEmailContract
 {
     use Notifiable,MustVerifyEmailTrait;
 
+
+    public function topics(){
+
+        
+        return $this->hasMany(Topic::class);
+    }
+
     /**
      * The attributes that are mass assignable.
      *

@@ -34,6 +34,9 @@
 
   <!-- Scripts -->
   <script src="{{ mix('js/app.js') }}"></script>
+  <script src="{{ asset('layuiadmin/layui/layui.js') }}"></script>
 </body>
+
+@yield('scripts')
 
 </html>

@@ -18,7 +18,7 @@ class TopicsTableSeeder extends Seeder
     	$category_id = Category::all()->pluck('id')->toArray();
 
 
-    	$topics = factory(Topic::class)->times(3000)->make()->each(function($topic) use ($faker,$user_ids,$category_id){
+    	$topics = factory(Topic::class)->times(1000)->make()->each(function($topic) use ($faker,$user_ids,$category_id){
 
     		$topic->user_id = $faker->randomElement($user_ids);
     		$topic->category_id = $faker->randomElement($category_id);

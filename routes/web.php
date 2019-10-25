@@ -38,8 +38,6 @@ Route::get('email/verify/{id}/{hash}', 'Auth\VerificationController@verify')->na
 Route::post('email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
 
 
-
-
 Route::resource('users','UsersController',['only' => ['show', 'update', 'edit']]);
 // Route::get('/users/{user}', 'UsersController@show')->name('users.show');
 // Route::get('/users/{user}/edit', 'UsersController@edit')->name('users.edit');
@@ -52,13 +50,14 @@ Route::get('topics/{topic}/{slug?}', 'TopicsController@show')->name('topics.show
 Route::post('upload_image', 'TopicsController@uploadImage')->name('topics.upload_image');
 
 
-
 Route::resource('categories', 'CategoriesController', ['only' => ['show']]);
 
 
-
-
 Route::resource('replies', 'RepliesController', ['only' => ['store', 'destroy']]);
+
+
+
+Route::resource('notifications', 'NotificationsController', ['only' => ['index']]);
 
 
 

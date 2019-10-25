@@ -24,6 +24,8 @@ class Topic extends Model
 
 
 
+
+
     public function scopeWithOrder($query , $order){
 
     	switch ($order) {

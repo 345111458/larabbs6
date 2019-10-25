@@ -39,6 +39,7 @@ class SlugTranslateHandler
         ]);
 
         // 发送 HTTP Get 请求
+        // $response = app(Client::class)->get($api.$query);
         $response = $http->get($api.$query);
 
         $result = json_decode($response->getBody(), true);

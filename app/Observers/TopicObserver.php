@@ -44,6 +44,12 @@ class TopicObserver
     }
 
 
+    public function deleted(Topic $topic){
+
+        \DB::table('replies')->whereTopicId($topic->id)->delete();
+    }
+
+
 
 
 

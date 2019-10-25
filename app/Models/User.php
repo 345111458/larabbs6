@@ -7,12 +7,29 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 use Illuminate\Auth\MustVerifyEmail as MustVerifyEmailTrait;
+use Auth;
 
 
 
 class User extends Authenticatable implements MustVerifyEmailContract
 {
-    use Notifiable,MustVerifyEmailTrait;
+    use MustVerifyEmailTrait;
+
+    use Notifiable{
+        notify as protected laravelNotify;
+    }
+
+    public function notify($instance){
+
+        if ($this->id == Auth::id()) {
+            return ;
+        }
+
+        if (method_exists($instance , 'toDatabase')) {
+            $this->increment('notification_count',1);
+        }
+        $this->laravelNotify($instance);
+    }
 
 
     public function topics(){

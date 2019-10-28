@@ -66,6 +66,19 @@ class User extends Authenticatable implements MustVerifyEmailContract
 
 
     /**
+    * 修改器
+     */
+    public function setPasswordAttribute($value){
+
+        if (strlen($value) != 60){
+            $value = bcrypt($value);
+        }
+
+        $this->attributes['password'] = $value;
+    }
+
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array

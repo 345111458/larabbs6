@@ -8,12 +8,13 @@ use Illuminate\Notifications\Notifiable;
 
 use Illuminate\Auth\MustVerifyEmail as MustVerifyEmailTrait;
 use Auth;
+use Spatie\Permission\Traits\HasRoles;
 
 
 
 class User extends Authenticatable implements MustVerifyEmailContract
 {
-    use MustVerifyEmailTrait;
+    use MustVerifyEmailTrait,HasRoles;
 
     use Notifiable{
         notify as protected laravelNotify;
